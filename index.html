@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <h1>Return of Investment for Real Estate</h1>
+
+    <p>
+      Fill out the form and click the button
+    </p>
+
+    <p>
+      
+    </p>
+    <input placeholder="hoa monthly" type="number" id="hoa"></input>
+    <input placeholder="rent" type="number" id="rent"></input>
+    <input placeholder="tax" type="number" id="tax"></input>
+    <input placeholder="price" type="number" id="price"></input>
+    <br>
+  </br>
+    <button onclick="calculate()">Click me</button>
+
+    <p id="demo"></p>
+
+    <script>
+      
+      function calculate() {
+        let hoa = Number(document.getElementById("hoa").value);
+        let rent = Number(document.getElementById("rent").value);
+        let tax = Number(document.getElementById("tax").value);
+        let price = Number(document.getElementById("price"). value);
+
+/*
+define the variables i need, such as hoa, rent etc
+grap the values from input fields
+do calculations
+print the result
+voila! rinse & repeat.
+*/
+      console.log("hoa: " + hoa);
+      console.log("rent: " + rent);
+      console.log("tax: " + tax);
+      console.log("price: " + price);
+        
+
+      var revenue = rent * 12;
+      var cost = tax + hoa * 12;
+      var profit =revenue - cost;
+      var yearReturn = price / profit;
+      var result = yearReturn.toFixed(2);
+
+
+      console.log("revenue: " + revenue);
+      console.log("cost: " + cost);
+      console.log("profit: " + profit);
+      console.log("return of investment years: " + yearReturn);
+
+
+
+      document.getElementById("demo").innerHTML = String(result);
+      }
+    </script>
+  </body>
+</html>
