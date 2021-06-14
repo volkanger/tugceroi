@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
-  <body>
-    <h1>Return of Investment for Real Estate</h1>
+  <body style="text-align: center">
+    <h1>Return of Investment for Real Estate by Tugce</h1>
 
     <p>
       Fill out the form and click the button
@@ -10,15 +10,20 @@
     <p>
       
     </p>
-    <input placeholder="hoa monthly" type="number" id="hoa"></input>
-    <input placeholder="rent" type="number" id="rent"></input>
-    <input placeholder="tax" type="number" id="tax"></input>
-    <input placeholder="price" type="number" id="price"></input>
+
+    <div id="inputBoxes">
+    HOA:</br> <input placeholder="hoa monthly" type="number" id="hoa"></input></br>
+    Rent:</br> <input placeholder="rent" type="number" id="rent"></input></br>
+    Tax: </br><input placeholder="tax" type="number" id="tax"></input></br>
+    Price:</br> <input placeholder="price" type="number" id="price"></input></br>
     <br>
+    </div>
+
   </br>
-    <button onclick="calculate()">Click me</button>
+    <button onclick="calculate()">Calculate ROI</button>
 
     <p id="demo"></p>
+
 
     <script>
       
