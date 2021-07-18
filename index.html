@@ -12,10 +12,10 @@
     </p>
 
     <div id="inputBoxes">
-    HOA:</br> <input placeholder="hoa monthly" type="number" id="hoa"></input></br>
+      Price:</br> <input placeholder="price" type="number" id="price"></input></br>
+    HOA:</br> <input placeholder="hoa monthly" type="number" id="hoa"></br>
+    Tax: </br><input placeholder="tax monthly" type="number" id="taxMonthly"></input> or <input placeholder="tax yearly" type="number" id="taxYearly"></input></br>
     Rent:</br> <input placeholder="rent" type="number" id="rent"></input></br>
-    Tax: </br><input placeholder="tax" type="number" id="tax"></input></br>
-    Price:</br> <input placeholder="price" type="number" id="price"></input></br>
     <br>
     </div>
 
@@ -30,8 +30,9 @@
       function calculate() {
         let hoa = Number(document.getElementById("hoa").value);
         let rent = Number(document.getElementById("rent").value);
-        let tax = Number(document.getElementById("tax").value);
-        let price = Number(document.getElementById("price"). value);
+        let taxYearly = Number(document.getElementById("taxYearly").value);
+        let taxMonthly = Number(document.getElementById("taxMonthly").value);
+        let price = Number(document.getElementById("price").value);
 
 /*
 define the variables i need, such as hoa, rent etc
@@ -42,25 +43,41 @@ voila! rinse & repeat.
 */
       console.log("hoa: " + hoa);
       console.log("rent: " + rent);
-      console.log("tax: " + tax);
+      console.log("tax yearly: " + taxYearly);
+      console.log("tax monthly: " + taxMonthly);
       console.log("price: " + price);
-        
-
-      var revenue = rent * 12;
-      var cost = tax + hoa * 12;
-      var profit =revenue - cost;
-      var yearReturn = price / profit;
+      
+      if (taxYearly && taxMonthly == 0)
+      {
+      var yearReturn = price /((rent * 12) - (taxYearly + hoa * 12));
       var result = yearReturn.toFixed(2);
+    }
+    else if (taxMonthly && taxYearly == 0){
 
+      var yearReturn = price /((rent * 12) - (taxMonthly * 12 + hoa * 12));
+      var result = yearReturn.toFixed(2);
+    }
+    else {
+var yearReturnByMonthlyTax = price /((rent * 12) - (taxMonthly * 12 + hoa * 12));
+var yearReturnByYearlyTax = price /((rent * 12) - (taxYearly + hoa * 12));
+if (yearReturnByMonthlyTax < yearReturnByYearlyTax) {
 
-      console.log("revenue: " + revenue);
-      console.log("cost: " + cost);
-      console.log("profit: " + profit);
+  var yearReturn = yearReturnByMonthlyTax
+  result = yearReturn.toFixed(2) + " This value is based on the Monthy input because it was shorter ROI"
+}
+else {
+  var yearReturn = yearReturnByYearlyTax
+  result = yearReturn.toFixed(2) + " This value is based on the Yearly input because it was shorter ROI"
+}
+    }
+
+  
       console.log("return of investment years: " + yearReturn);
 
 
 
       document.getElementById("demo").innerHTML = String(result);
+      
       }
     </script>
   </body>
