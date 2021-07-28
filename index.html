@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <script type="text/javascript" src="/src/index.js">  </script>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -20,8 +21,6 @@
       
       </p>
   </div>
-  
- 
   <div class="container">
     <form>
       <div class="form-row">
@@ -56,110 +55,12 @@
       
     </form>
   </div>
-
-
-   
-<!--
-
-      <div class="input-group" id="inputBoxes">
-      HOA:</br><input type="text" class="form-control" placeholder="hoa monthly" type="number" id="hoa"></br>
-    </div>
-    <div class="input-group mb-3" id="inputBoxes">
-        <div class="col-sm">
-          Tax: 
-        </div>
-        <div class="col">
-        </div>
-        <div class="col">
-          <input type="text" class="form-control" placeholder="tax monthly" type="number" id="taxMonthly"></input>
-        </div>
-        <div class="col-"> 
-          or  
-        </div>
-        <div class="col-sm">  
-          <input type="text" class="form-control" placeholder="tax yearly" type="number" id="taxYearly"></input>
-        </div>
-    <div class="input-group mb-3" id="inputBoxes">   
-      Rent:<input type="text" class="form-control" placeholder="rent" type="number" id="rent"></input>
-    </div>
-  </div>
-
--->
   </br>
-    <button class="btn btn-secondary" onclick="calculate()">Calculate ROI</button>
+    <button id="batin" class="btn btn-secondary" >Calculate ROI</button>
 
     <p class="display-4 mt-3" id="demo"></p>
     <p class="lead" id="advice"></p>
 
-    <script>
       
-      function calculate() {
-        let hoa = Number(document.getElementById("hoa").value);
-        let rent = Number(document.getElementById("rent").value);
-        let taxYearly = Number(document.getElementById("taxYearly").value);
-        let taxMonthly = Number(document.getElementById("taxMonthly").value);
-        let price = Number(document.getElementById("price").value);
-
-/*
-define the variables i need, such as hoa, rent etc
-grap the values from input fields
-do calculations
-print the result
-voila! rinse & repeat.
-*/
-      console.log("hoa: " + hoa);
-      console.log("rent: " + rent);
-      console.log("tax yearly: " + taxYearly);
-      console.log("tax monthly: " + taxMonthly);
-      console.log("price: " + price);
-      
-      if (taxYearly && taxMonthly == 0)
-      {
-      var yearReturn = price /((rent * 12) - (taxYearly + hoa * 12));
-      result = yearReturn.toFixed(2) + " years" 
-    }
-    else if (taxMonthly && taxYearly == 0){
-
-      var yearReturn = price /((rent * 12) - (taxMonthly * 12 + hoa * 12));
-      result = yearReturn.toFixed(2) + " years"
-    }
-    else {
-var yearReturnByMonthlyTax = price /((rent * 12) - (taxMonthly * 12 + hoa * 12));
-var yearReturnByYearlyTax = price /((rent * 12) - (taxYearly + hoa * 12));
-if (yearReturnByMonthlyTax < yearReturnByYearlyTax) {
-
-  var yearReturn = yearReturnByMonthlyTax
-  result = yearReturn.toFixed(2) + " This value is based on the Monthy input because it was shorter ROI"
-}
-else {
-  var yearReturn = yearReturnByYearlyTax
-  result = yearReturn.toFixed(2) + " This value is based on the Yearly input because it was shorter ROI"
-}
-    }
-
-  
-      console.log("return of investment years: " + yearReturn);
-
-
-
-      document.getElementById("demo").innerHTML = String(result);
-
-      let adv;
-        if(yearReturn.toFixed(2) < 15) {
-        adv = "it is time to invest";
-      } else {
-        adv = "Not a good choice"
-      }
-      /*if( yearReturn.toFixed(2) < 15) {
-        result = "it is time to invest"
-      }
-      else {
-        result = "Not a good choise"
-      }
-      
-        document.getElementById("advice").innerHTML = String(result); */
-      document.getElementById("advice").innerHTML = String(adv);
-      }
-    </script>
   </body>
 </html>
