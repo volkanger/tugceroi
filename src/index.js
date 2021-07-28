@@ -1,5 +1,5 @@
 //define varibales
-// debugger;
+
 let hoa = Number(document.getElementById("hoa").value);
 let rent = Number(document.getElementById("rent").value);
 let taxYearly = Number(document.getElementById("taxYearly").value);
@@ -15,7 +15,6 @@ inputs.forEach(function (input) {
   input.onblur = inputBlur;
   input.addEventListener("keypress", function (event) {
     if (event.key === "Enter") {
-      // debugger;
       event.preventDefault();
       this.blur();
       // inputBlur();
@@ -32,7 +31,6 @@ function inputFocus() {
 
 //inBlur olunca bilgileri alsin yazdirsin hesaplatsin
 function inputBlur() {
-  // debugger;
   readInputs();
   document.getElementById("demo").style.display = "block";
   document.getElementById("advice").style.display = "block";
@@ -74,7 +72,6 @@ function readInputs() {
 }
 //yazdiracak
 function writeInputs() {
-  debugger;
   document.getElementById("price").value = susle(price);
   document.getElementById("hoa").value = susle(hoa);
   document.getElementById("taxMonthly").value = susle(taxMonthly);
@@ -86,7 +83,6 @@ function writeInputs() {
 //calculate AND print
 
 function calculate() {
-  debugger;
   if (taxYearly !== "") {
     if (taxMonthly !== "") {
       if (taxYearly < taxMonthly * 12) {
