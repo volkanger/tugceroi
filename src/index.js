@@ -1,10 +1,10 @@
 //define varibales
 
-let hoa = Number(document.getElementById("hoa").value);
-let rent = Number(document.getElementById("rent").value);
-let taxYearly = Number(document.getElementById("taxYearly").value);
-let taxMonthly = Number(document.getElementById("taxMonthly").value);
-let price = Number(document.getElementById("price").value);
+let hoa;
+let rent;
+let taxYearly;
+let taxMonthly;
+let price;
 let tax;
 let result;
 let adv;
